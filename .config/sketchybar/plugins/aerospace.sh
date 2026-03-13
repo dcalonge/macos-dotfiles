@@ -55,7 +55,7 @@ get_icon() {
     "Spotify")              echo "" ;;
     "Music")                echo "" ;;
     "VLC")                  echo "" ;;
-    "IINA")                 echo "" ;;
+    "YT Music")             echo "󰝚" ;;
     "Plex")                 echo "" ;;
     "Podcasts")             echo "" ;;
     # Productivity & Notes
@@ -71,6 +71,7 @@ get_icon() {
     "Things 3")             echo "" ;;
     "OmniFocus")            echo "" ;;
     "Linear")               echo "" ;;
+    "Stocks")                echo "󰄪" ;;
     # Design & Creative
     "Figma")                echo "" ;;
     "Sketch")               echo "" ;;
@@ -81,18 +82,11 @@ get_icon() {
     # Dev tools
     "Finder")               echo "󰀶" ;;
     "GitHub Desktop")       echo "󰊤" ;;
-    "Tower")                echo "" ;;
     "GitKraken")            echo "󰊢" ;;
-    "TablePlus")            echo "" ;;
-    "Sequel Pro")           echo "" ;;
-    "Postico")              echo "" ;;
-    "Postman")              echo "" ;;
-    "Insomnia")             echo "" ;;
-    "Docker Desktop")       echo "" ;;
-    "Proxyman")             echo "" ;;
     # System
     "System Preferences")   echo "" ;;
     "System Settings")      echo "" ;;
+    "PingID")               echo "" ;;
     "Activity Monitor")     echo "" ;;
     "1Password")            echo "" ;;
     "Bitwarden")            echo "" ;;
@@ -106,7 +100,7 @@ get_icon() {
     "Pages")                echo "" ;;
     "Keynote")              echo "" ;;
     # Fallback: show nothing for unknown apps
-    *)                      echo "" ;;
+    *)                      echo "󰘔" ;;
   esac
 }
 
