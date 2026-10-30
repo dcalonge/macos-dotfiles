@@ -1,0 +1,95 @@
+# shellcheck shell=bash
+
+if tp_patched_font_in_use; then
+  TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+  TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
+  TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+  TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+else
+  TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
+  TMUX_POWERLINE_SEPARATOR_LEFT_THIN="❮"
+  TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD="▶"
+  TMUX_POWERLINE_SEPARATOR_RIGHT_THIN="❯"
+fi
+
+#
+# Catppuccin / LazyVim colors
+#
+
+TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR="236"
+TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR="252"
+
+TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR="$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD"
+TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR="$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD"
+
+#
+# Active Window
+#
+
+TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
+  "#[fg=236,bg=111,bold]"
+  " #W "
+  "#[default]"
+)
+
+#
+# Inactive Windows
+#
+
+TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
+  "#[fg=245,bg=236]"
+  " #W "
+)
+
+TMUX_POWERLINE_WINDOW_STATUS_STYLE=(
+  "$(tp_format regular)"
+)
+
+#
+# LEFT
+#
+
+TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
+
+  #
+  # Flat session block
+  #
+  "tmux_session_info 236 252"
+
+  #
+  # Hostname
+  #
+  "hostname 238 252"
+
+  #
+  # Git branch
+  #
+  "vcs_branch 60 236"
+)
+
+#
+# RIGHT
+#
+
+TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
+
+  #
+  # Battery
+  #
+  "battery 239 252"
+
+  #
+  # Weather
+  #
+  "weather 110 236"
+
+  #
+  # Date
+  #
+  "date 238 252"
+
+  #
+  # Time
+  #
+  "time 60 236"
+)

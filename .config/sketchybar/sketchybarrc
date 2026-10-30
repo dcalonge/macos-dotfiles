@@ -7,26 +7,25 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=40 blur_radius=0 color=0x00000000 display=all
+sketchybar --bar position=top height=38 margin=0 y_offset=0 blur_radius=30 color=0x66000000 display=all
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-sketchybar --add event aerospace_workspace_change
+sketchybar --add event omniwm_workspace_change
 SPACES=(1 2 3 4 5 6 7 8 9 10)
 
 for sid in "${SPACES[@]}";do
     sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
         --set space.$sid \
-        background.color=0xff646463 \
+        background.color=0x33ffffff \
         background.corner_radius=12 \
         background.height=24 \
         background.drawing=off \
-        padding_left=5 \
-        padding_right=2 \
+        padding_left=3 \
+        padding_right=3 \
         icon="$sid" \
         icon.font="JetBrainsMono Nerd Font:Bold:13.0" \
         icon.padding_left=6 \
@@ -35,9 +34,15 @@ for sid in "${SPACES[@]}";do
         label.font="JetBrainsMono Nerd Font:Bold:17.0" \
         label.padding_left=2 \
         label.padding_right=12 \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+        click_script="omniwmctl command switch-workspace $sid"
 done
+
+# Single item that refreshes every workspace item on OmniWM changes
+sketchybar --add item omniwm left \
+    --set omniwm drawing=off updates=on script="$PLUGIN_DIR/omniwm.sh" \
+    --subscribe omniwm omniwm_workspace_change system_woke
+
+"$PLUGIN_DIR/omniwm_watch.sh"
 
 default=(
   padding_left=5
@@ -46,10 +51,10 @@ default=(
   label.font="JetBrainsMono Nerd Font:Bold:13.0"
   icon.color=0xffffffff
   label.color=0xffffffff
-  icon.padding_left=4
-  icon.padding_right=4
-  label.padding_left=4
-  label.padding_right=4
+  icon.padding_left=5
+  icon.padding_right=5
+  label.padding_left=5
+  label.padding_right=5
 )
 sketchybar --default "${default[@]}"
 
@@ -86,6 +91,17 @@ sketchybar --add item clock right \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change \
+           --add item weather right \
+           --set weather update_freq=1200 script="$PLUGIN_DIR/weather.sh" \
+
+##### Grouping Items into Brackets #####
+
+# Group items into brackets without a separate floating background,
+# since the bar itself now provides the full-width background.
+sketchybar --add bracket left_bracket space.1 space.2 space.3 space.4 space.5 space.6 space.7 space.8 space.9 space.10 chevron front_app \
+           --set left_bracket background.drawing=off \
+           --add bracket right_bracket clock battery wifi volume weather \
+           --set right_bracket background.drawing=off
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

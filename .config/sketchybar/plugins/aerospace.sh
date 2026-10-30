@@ -6,101 +6,68 @@ ACTIVE=$(aerospace list-workspaces --focused)
 
 get_icon() {
   case "$1" in
-    # Browsers
-    "Arc")                  echo "" ;;
-    *"Safari"*)             echo "" ;;
-    "Firefox")              echo "󰈹" ;;
-    "Google Chrome")        echo "" ;;
-    "Chromium")             echo "" ;;
-    "Brave Browser")        echo "" ;;
-    "Opera")                echo "" ;;
-    # Terminals
-    "Terminal")             echo "" ;;
-    "iTerm2")               echo "" ;;
-    "Alacritty")            echo "" ;;
-    "kitty")                echo "" ;;
-    "WezTerm")              echo "" ;;
-    "Hyper")                echo "" ;;
-    # Editors & IDEs
-    "Visual Studio Code")   echo "󰨞" ;;
-    "Code")                 echo "󰨞" ;;
-    "Xcode")                echo "" ;;
-    "IntelliJ IDEA")        echo "" ;;
-    "PyCharm")              echo "" ;;
-    "WebStorm")             echo "" ;;
-    "DataGrip")             echo "" ;;
-    "GoLand")               echo "" ;;
-    "Rider")                echo "" ;;
-    "CLion")                echo "" ;;
-    "RustRover")            echo "" ;;
-    "Zed")                  echo "" ;;
-    "Neovim")               echo "" ;;
-    "Vim")                  echo "" ;;
-    "Emacs")                echo "" ;;
-    "Cursor")               echo "󰺊" ;;
-    # Communication
-    "Slack")                echo "" ;;
-    "Discord")              echo "" ;;
-    "Telegram")             echo "" ;;
-    *"WhatsApp"*)           echo "󰖣" ;;
-    "Signal")               echo "" ;;
-    "Messages")             echo "󰵅" ;;
-    "Mail")                 echo "" ;;
-    "Mimestream")           echo "" ;;
-    "FaceTime")             echo "" ;;
-    "Microsoft Outlook")    echo "󰴢" ;;
-    "Microsoft Teams")      echo "󰊻" ;;
-    "zoom.us")              echo "" ;;
-    # Music & Media
-    "Spotify")              echo "" ;;
-    "Music")                echo "" ;;
-    "VLC")                  echo "" ;;
-    "YT Music")             echo "󰝚" ;;
-    "Plex")                 echo "" ;;
-    "Podcasts")             echo "" ;;
-    # Productivity & Notes
-    "Notes")                echo "󰎚" ;;
-    "Obsidian")             echo "󰏗" ;;
-    "Notion")               echo "" ;;
-    "Bear")                 echo "" ;;
-    "Craft")                echo "" ;;
-    "Logseq")               echo "" ;;
-    "Reeder")               echo "" ;;
-    "Calendar")             echo "" ;;
-    "Reminders")            echo "" ;;
-    "Things 3")             echo "" ;;
-    "OmniFocus")            echo "" ;;
-    "Linear")               echo "" ;;
-    "Stocks")                echo "󰄪" ;;
-    # Design & Creative
-    "Figma")                echo "" ;;
-    "Sketch")               echo "" ;;
-    "Adobe Photoshop")      echo "" ;;
-    "Adobe Illustrator")    echo "" ;;
-    "Preview")              echo "" ;;
-    "Photos")               echo "" ;;
-    # Dev tools
-    "Finder")               echo "󰀶" ;;
-    "GitHub Desktop")       echo "󰊤" ;;
-    "GitKraken")            echo "󰊢" ;;
-    # System
-    "System Preferences")   echo "" ;;
-    "System Settings")      echo "" ;;
-    "PingID")               echo "" ;;
-    "Activity Monitor")     echo "" ;;
-    "1Password")            echo "" ;;
-    "Bitwarden")            echo "" ;;
-    "Raycast")              echo "" ;;
-    "Alfred")               echo "" ;;
-    # Office
-    "Microsoft Word")       echo "󱎒" ;;
-    "Microsoft Excel")      echo "󱎏" ;;
-    "Microsoft PowerPoint") echo "󱎐" ;;
-    "Numbers")              echo "" ;;
-    "Pages")                echo "" ;;
-    "Keynote")              echo "" ;;
-    # Fallback: show nothing for unknown apps
-    *)                      echo "󰘔" ;;
+  # Browsers
+  "") echo "Desktop" ;;
+  *"Safari"*) echo "" ;;
+  "Firefox") echo "󰈹" ;;
+  "Google Chrome") echo "" ;;
+  "Chromium") echo "" ;;
+  "Brave Browser") echo "" ;;
+  # Terminals
+  "Terminal") echo "" ;;
+  "iTerm2") echo "" ;;
+  "Alacritty") echo "" ;;
+  "kitty") echo "" ;;
+  # Editors & IDEs
+  "Visual Studio Code") echo "󰨞" ;;
+  "Code") echo "󰨞" ;;
+  "Kiro") echo "󰊠" ;;
+  "IntelliJ IDEA") echo "" ;;
+  "PyCharm") echo "" ;;
+  "Neovim") echo "" ;;
+  "Vim") echo "" ;;
+  # Communication
+  *"WhatsApp"*) echo "󰖣" ;;
+  "Messages") echo "󰵅" ;;
+  "Mail") echo "" ;;
+  "FaceTime") echo "" ;;
+  "Microsoft Outlook") echo "󰴢" ;;
+  "Microsoft Teams") echo "󰊻" ;;
+  # Music & Media
+  "Music") echo "" ;;
+  "VLC") echo "" ;;
+  "YT Music") echo "󰝚" ;;
+  "Podcasts") echo "" ;;
+  # Productivity & Notes
+  "Ollama") echo "󰚩" ;;
+  "Calculator") echo "󰃬" ;;
+  "Clock") echo "󰥔" ;;
+  "Notes") echo "󰎚" ;;
+  "Obsidian") echo "󰏗" ;;
+  "Calendar") echo "󰃭" ;;
+  "Reminders") echo "" ;;
+  "Stocks") echo "󰄪" ;;
+  # Design & Creative
+  "Sketch") echo "" ;;
+  "Preview") echo "" ;;
+  "Photos") echo "" ;;
+  # Dev tools
+  "Finder") echo "󰀶" ;;
+  "GitHub Desktop") echo "󰊤" ;;
+  # System
+  "System Preferences") echo "" ;;
+  "System Settings") echo "" ;;
+  "PingID") echo "" ;;
+  "Activity Monitor") echo "" ;;
+  # Office
+  "Microsoft Word") echo "󱎒" ;;
+  "Microsoft Excel") echo "󱎏" ;;
+  "Microsoft PowerPoint") echo "󱎐" ;;
+  "Numbers") echo "" ;;
+  "Pages") echo "" ;;
+  "Keynote") echo "" ;;
+  # Fallback: show nothing for unknown apps
+  *) echo "󰘔" ;;
   esac
 }
 
@@ -111,7 +78,7 @@ while IFS= read -r app; do
   icon=$(get_icon "$app")
   [ -z "$icon" ] && continue
   ICONS="$ICONS$icon "
-done <<< "$APPS"
+done <<<"$APPS"
 # trim trailing space
 ICONS="${ICONS%" "}"
 

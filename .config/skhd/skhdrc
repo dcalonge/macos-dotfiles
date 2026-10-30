@@ -1,0 +1,14 @@
+alt - return : open -a iTerm
+alt - w : open -a Firefox
+alt - t : open -a "Microsoft Teams"
+alt - o : open -a "Microsoft Outlook"
+alt - n : open -a Notes
+alt - r : open -a Reminders
+alt - s : open -a "System Settings"
+alt - c : open -a "Visual Studio Code"
+alt - k : open -a Kiro
+alt - p : open -a PingID
+alt - e : open -a Finder
+
+alt + shift - s : screencapture -i -c
+alt + shift - b : sketchybar --reload

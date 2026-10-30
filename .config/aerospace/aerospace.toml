@@ -48,11 +48,24 @@ on-mode-changed = []
 
 # Trigger sketchybar update whenever a new window is detected
 [[on-window-detected]]
+check-further-callbacks = true
 run = ['exec-and-forget sketchybar --trigger aerospace_workspace_change']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.reminders'
 run = 'layout tiling'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'Safari'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'iTerm'
+run = 'move-node-to-workspace 5'
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -117,9 +130,11 @@ run = 'layout tiling'
     alt-r = 'exec-and-forget open -a Reminders'
     alt-s = 'exec-and-forget open -a "System Settings"'
     alt-c = 'exec-and-forget open -a "Visual Studio Code"'
+    alt-k = 'exec-and-forget open -a "Kiro"'
     alt-f = 'exec-and-forget open -a Finder'
     alt-p = 'exec-and-forget open -a PingID'
     alt-shift-s = 'exec-and-forget screencapture -i -c'
+    alt-shift-b = 'exec-and-forget sketchybar --reload'
     alt-shift-r = 'reload-config'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
